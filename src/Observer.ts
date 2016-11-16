@@ -75,7 +75,7 @@ class TaskPanel extends egret.DisplayObjectContainer implements Observer {
         this.body.graphics.drawRect(0, 0, 600, 100);
         this.body.graphics.endFill();
 
-        //     this.textField.text = "   任务进程    ";
+
         this.textField.x = x;
         this.textField.x = y;
         this.textField2 = new egret.TextField();

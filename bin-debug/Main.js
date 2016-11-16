@@ -76,8 +76,8 @@ var Main = (function (_super) {
         // this.addChild(new TaskService());
         var Dpanel_1 = new DialoguePanel("go to NPC_2");
         var Dpanel_2 = new DialoguePanel("OK");
-        var NPC_1 = new NPC("NPC_1", "NPC_1_png", 150, 250, Dpanel_1);
-        var NPC_2 = new NPC("NPC_2", "NPC_2_png", 250, 850, Dpanel_2);
+        var NPC_1 = new NPC("NPC_1", "NPC_1_png", 40, 100, Dpanel_1);
+        var NPC_2 = new NPC("NPC_2", "NPC_2_png", 600, 900, Dpanel_2);
         var task = new Task("000", "Status");
         task.fromNpcId = "NPC_1";
         task.toNpcId = "NPC_2";

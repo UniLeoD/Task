@@ -61,7 +61,6 @@ var TaskPanel = (function (_super) {
         this.body.graphics.beginFill(0x000000, 0.4);
         this.body.graphics.drawRect(0, 0, 600, 100);
         this.body.graphics.endFill();
-        //     this.textField.text = "   任务进程    ";
         this.textField.x = x;
         this.textField.x = y;
         this.textField2 = new egret.TextField();
