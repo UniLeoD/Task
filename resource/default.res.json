@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,Banboo_jpg,NPC_1_png,NPC_2_png,Exclamation_png,Question_png,egret_png,Accept_png",
+			"keys": "description_json,Banboo_jpg,NPC_1_png,NPC_2_png,Exclamation_png,Question_png,egret_png,Accept_png,ok_png",
 			"name": "preload"
 		}
 	],
@@ -45,6 +45,11 @@
 			"name": "Accept_png",
 			"type": "image",
 			"url": "assets/Accept.png"
+		},
+		{
+			"name": "ok_png",
+			"type": "image",
+			"url": "assets/ok.png"
 		}
 	]
 }

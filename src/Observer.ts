@@ -109,7 +109,7 @@ class DialoguePanel extends egret.DisplayObjectContainer {
         this.body.y = 450;
         this.textField = new egret.TextField();
         this.textField.text = talk;
-        this.button = new Button("Accept_png");
+        this.button = new Button("ok_png");
         this.textField.x = 80;
         this.textField.y = 500;
         this.button.width = 40;
