@@ -1,0 +1,50 @@
+{
+	"groups": [
+		{
+			"keys": "description_json,Banboo_jpg,NPC_1_png,NPC_2_png,Exclamation_png,Question_png,egret_png,Accept_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "Banboo_jpg",
+			"type": "image",
+			"url": "assets/Banboo.jpg"
+		},
+		{
+			"name": "NPC_1_png",
+			"type": "image",
+			"url": "assets/NPC_1.png"
+		},
+		{
+			"name": "NPC_2_png",
+			"type": "image",
+			"url": "assets/NPC_2.png"
+		},
+		{
+			"name": "Exclamation_png",
+			"type": "image",
+			"url": "assets/Exclamation.png"
+		},
+		{
+			"name": "Question_png",
+			"type": "image",
+			"url": "assets/Question.png"
+		},
+		{
+			"name": "egret_png",
+			"type": "image",
+			"url": "assets/egret.png"
+		},
+		{
+			"name": "Accept_png",
+			"type": "image",
+			"url": "assets/Accept.png"
+		}
+	]
+}
