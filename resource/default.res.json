@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "description_json,Banboo_jpg,NPC_1_png,NPC_2_png,Exclamation_png,Question_png,egret_png,Accept_png,ok_png",
+			"keys": "description_json,Banboo_jpg,NPC_1_png,NPC_2_png,Exclamation_png,Question_png,egret_png,Accept_png,OK_png,Panel_png",
 			"name": "preload"
 		}
 	],
@@ -47,9 +47,14 @@
 			"url": "assets/Accept.png"
 		},
 		{
-			"name": "ok_png",
+			"name": "OK_png",
 			"type": "image",
-			"url": "assets/ok.png"
+			"url": "assets/OK.png"
+		},
+		{
+			"name": "Panel_png",
+			"type": "image",
+			"url": "assets/Panel.png"
 		}
 	]
 }

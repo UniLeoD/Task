@@ -82,14 +82,12 @@ var DialoguePanel = (function (_super) {
     __extends(DialoguePanel, _super);
     function DialoguePanel(talk) {
         _super.call(this);
-        this.body = new egret.Shape();
-        this.body.graphics.beginFill(0x000000, 0.5);
-        this.body.graphics.drawRect(0, 0, 600, 172);
-        this.body.graphics.endFill();
-        this.body.y = 450;
+        this.panel = new Panel("Panel_png");
+        this.panel.x = 75;
+        this.panel.y = 400;
         this.textField = new egret.TextField();
         this.textField.text = talk;
-        this.button = new Button("ok_png");
+        this.button = new Button("OK_png");
         this.textField.x = 80;
         this.textField.y = 500;
         this.button.width = 40;
@@ -101,12 +99,12 @@ var DialoguePanel = (function (_super) {
     }
     var d = __define,c=DialoguePanel,p=c.prototype;
     p.showDpanel = function () {
-        this.addChild(this.body);
+        this.addChild(this.panel);
         this.addChild(this.button);
         this.addChild(this.textField);
     };
     p.disshowDpanel = function () {
-        this.removeChild(this.body);
+        this.removeChild(this.panel);
         this.removeChild(this.button);
         this.removeChild(this.textField);
         //this.alpha=0;
@@ -129,6 +127,18 @@ var DialoguePanel = (function (_super) {
     return DialoguePanel;
 }(egret.DisplayObjectContainer));
 egret.registerClass(DialoguePanel,'DialoguePanel');
+var Panel = (function (_super) {
+    __extends(Panel, _super);
+    function Panel(ad) {
+        _super.call(this);
+        this.panel = new egret.Bitmap();
+        this.panel.texture = RES.getRes(ad);
+        this.addChild(this.panel);
+    }
+    var d = __define,c=Panel,p=c.prototype;
+    return Panel;
+}(egret.DisplayObjectContainer));
+egret.registerClass(Panel,'Panel');
 var Button = (function (_super) {
     __extends(Button, _super);
     function Button(ad) {
