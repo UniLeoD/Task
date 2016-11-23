@@ -1,0 +1,70 @@
+{
+	"groups": [
+		{
+			"keys": "bg_jpg,egret_icon_png,description_json,对话_png,接受_png,完成_png,灰问号_png,黄叹号_png,黄问号_png,npc0_01_png,npc1_01_png,按钮_png",
+			"name": "preload"
+		}
+	],
+	"resources": [
+		{
+			"name": "bg_jpg",
+			"type": "image",
+			"url": "assets/bg.jpg"
+		},
+		{
+			"name": "egret_icon_png",
+			"type": "image",
+			"url": "assets/egret_icon.png"
+		},
+		{
+			"name": "description_json",
+			"type": "json",
+			"url": "config/description.json"
+		},
+		{
+			"name": "对话_png",
+			"type": "image",
+			"url": "assets/对话.png"
+		},
+		{
+			"name": "接受_png",
+			"type": "image",
+			"url": "assets/接受.png"
+		},
+		{
+			"name": "完成_png",
+			"type": "image",
+			"url": "assets/完成.png"
+		},
+		{
+			"name": "灰问号_png",
+			"type": "image",
+			"url": "assets/灰问号.png"
+		},
+		{
+			"name": "黄叹号_png",
+			"type": "image",
+			"url": "assets/黄叹号.png"
+		},
+		{
+			"name": "黄问号_png",
+			"type": "image",
+			"url": "assets/黄问号.png"
+		},
+		{
+			"name": "npc0_01_png",
+			"type": "image",
+			"url": "assets/npc0_01.png"
+		},
+		{
+			"name": "npc1_01_png",
+			"type": "image",
+			"url": "assets/npc1_01.png"
+		},
+		{
+			"name": "按钮_png",
+			"type": "image",
+			"url": "assets/按钮.png"
+		}
+	]
+}
