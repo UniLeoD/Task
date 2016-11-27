@@ -71,7 +71,6 @@ class TaskService {
     }
 
     private notify(task: Task) {
-       // console.log("111");
         for (var observer of this.observerList) {
             observer.onChange(task);
         }

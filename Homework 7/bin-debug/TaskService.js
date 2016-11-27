@@ -56,7 +56,6 @@ var TaskService = (function () {
         }
     };
     p.notify = function (task) {
-        // console.log("111");
         for (var _i = 0, _a = this.observerList; _i < _a.length; _i++) {
             var observer = _a[_i];
             observer.onChange(task);

@@ -79,35 +79,7 @@ class Main extends egret.DisplayObjectContainer {
 
     private textfield: egret.TextField;
 
-    private startAnimation(result: Array<any>): void {
-        var self: any = this;
 
-        var parser = new egret.HtmlTextParser();
-        var textflowArr: Array<Array<egret.ITextElement>> = [];
-        for (var i: number = 0; i < result.length; i++) {
-            textflowArr.push(parser.parser(result[i]));
-        }
-
-        var textfield = self.textfield;
-        var count = -1;
-        var change: Function = function () {
-            count++;
-            if (count >= textflowArr.length) {
-                count = 0;
-            }
-            var lineArr = textflowArr[count];
-
-            self.changeDescription(textfield, lineArr);
-
-            var tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 100);
-            tw.wait(2000);
-            tw.to({ "alpha": 0 }, 100);
-            tw.call(change, self);
-        };
-
-        change();
-    }
     /**
      * 创建游戏场景
      * Create a game scene
@@ -168,7 +140,35 @@ class Main extends egret.DisplayObjectContainer {
 
 
 
+    private startAnimation(result: Array<any>): void {
+        var self: any = this;
 
+        var parser = new egret.HtmlTextParser();
+        var textflowArr: Array<Array<egret.ITextElement>> = [];
+        for (var i: number = 0; i < result.length; i++) {
+            textflowArr.push(parser.parser(result[i]));
+        }
+
+        var textfield = self.textfield;
+        var count = -1;
+        var change: Function = function () {
+            count++;
+            if (count >= textflowArr.length) {
+                count = 0;
+            }
+            var lineArr = textflowArr[count];
+
+            self.changeDescription(textfield, lineArr);
+
+            var tw = egret.Tween.get(textfield);
+            tw.to({ "alpha": 1 }, 100);
+            tw.wait(2000);
+            tw.to({ "alpha": 0 }, 100);
+            tw.call(change, self);
+        };
+
+        change();
+    }
 
     private changeDescription(textfield: egret.TextField, textFlow: Array<egret.ITextElement>): void {
         textfield.textFlow = textFlow;

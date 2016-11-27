@@ -95,34 +95,35 @@ class DialoguePanel extends egret.DisplayObjectContainer {
         super();
 
 
-        this.panel = new Panel("Panel_png");
-        this.panel.x = 120;
-        this.panel.y = 420;
-        this.textfield = new egret.TextField();
-        this.textfield.text = talk;
-        this.button = new Button("OK_png");
-        this.textfield.x = 150;
-        this.textfield.y = 450;
-        this.button.x = 330;
-        this.button.y = 460;
-        this.button.touchEnabled = true;
-        this.button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
+        this.panel_1 = new Panel("Panel_png");
+        this.panel_1.x = 120;
+        this.panel_1.y = 420;
+        this.textfield_1 = new egret.TextField();
+        this.textfield_1.text = talk;
+        this.button_1 = new Button("OK_png");
+        this.textfield_1.x = 150;
+        this.textfield_1.y = 450;
+        this.button_1.x = 330;
+        this.button_1.y = 460;
+        this.button_1.touchEnabled = true;
+        this.button_1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
 
 
     }
 
     showDpanel() {
-        this.addChild(this.panel);
-        this.addChild(this.button);
-        this.addChild(this.textfield);
+        this.addChild(this.panel_1);
+        this.addChild(this.button_1);
+        this.addChild(this.textfield_1);
       
     }
 
     disshowDpanel() {
-        this.removeChild(this.panel);
-        this.removeChild(this.button);
-        this.removeChild(this.textfield);
-
+        this.removeChild(this.panel_1);
+        this.removeChild(this.button_1);
+        this.removeChild(this.textfield_1);
+      
+        //this.alpha=0;
     }
 
 
@@ -135,6 +136,7 @@ class DialoguePanel extends egret.DisplayObjectContainer {
 
                 break;
             case TaskStatus.CAN_SUBMIT:
+                //console.log(TaskService.getInstance().finish("000"));
                 TaskService.getInstance().finish("000");
 
                 break;

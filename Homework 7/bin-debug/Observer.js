@@ -1,6 +1,5 @@
 var NPC = (function (_super) {
     __extends(NPC, _super);
-    // public task:Task;
     function NPC(id, ad, x, y, dp) {
         _super.call(this);
         this._body = new egret.Bitmap();
@@ -15,7 +14,8 @@ var NPC = (function (_super) {
         this._body.height = this._body.height;
         this._emoji.width = this._emoji.width;
         this._emoji.height = this._emoji.height;
-        this._emoji.y = -100;
+        this._emoji.x = 60;
+        this._emoji.y = 0;
         this._emoji.alpha = 0;
         this.addChild(this._body);
         this.addChild(this._emoji);
@@ -25,13 +25,9 @@ var NPC = (function (_super) {
     var d = __define,c=NPC,p=c.prototype;
     p.onChange = function (task) {
         if (task.status == TaskStatus.ACCEPTABLE && this.id == task.fromNpcId) {
-            //task.status = TaskStatus.DURING;
-            //this._emoji.texture = RES.getRes("question_png");
             this._emoji.alpha = 1;
         }
         if (task.status == TaskStatus.CAN_SUBMIT && this.id == task.fromNpcId) {
-            //task.status = TaskStatus.;
-            //this._emoji.texture = RES.getRes("question_png");
             this._emoji.alpha = 0;
         }
         if (task.status == TaskStatus.CAN_SUBMIT && this.id == task.toNpcId) {
@@ -51,22 +47,16 @@ var NPC = (function (_super) {
 egret.registerClass(NPC,'NPC',["Observer"]);
 var TaskPanel = (function (_super) {
     __extends(TaskPanel, _super);
-    //task:Task;
     function TaskPanel(x, y) {
         _super.call(this);
         this.x = x;
         this.y = y;
-        this.body = new egret.Shape();
         this.textField = new egret.TextField();
-        this.body.graphics.beginFill(0x000000, 0.4);
-        this.body.graphics.drawRect(0, 0, 600, 100);
-        this.body.graphics.endFill();
-        this.textField.x = x;
-        this.textField.x = y;
+        this.textField.x = 10;
+        this.textField.x = 1000;
         this.textField2 = new egret.TextField();
-        this.textField2.x = x + 20;
-        this.textField2.y = y + 30;
-        this.addChild(this.body);
+        this.textField2.x = 30;
+        this.textField2.y = 1030;
         this.addChild(this.textField);
         this.addChild(this.textField2);
     }
@@ -81,31 +71,29 @@ var DialoguePanel = (function (_super) {
     __extends(DialoguePanel, _super);
     function DialoguePanel(talk) {
         _super.call(this);
-        this.panel = new Panel("Panel_png");
-        this.panel.x = 75;
-        this.panel.y = 400;
-        this.textField = new egret.TextField();
-        this.textField.text = talk;
-        this.button = new Button("OK_png");
-        this.textField.x = 80;
-        this.textField.y = 500;
-        this.button.width = 40;
-        this.button.height = 40;
-        this.button.x = 500;
-        this.button.y = 550;
-        this.button.touchEnabled = true;
-        this.button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
+        this.panel_1 = new Panel("Panel_png");
+        this.panel_1.x = 120;
+        this.panel_1.y = 420;
+        this.textfield_1 = new egret.TextField();
+        this.textfield_1.text = talk;
+        this.button_1 = new Button("OK_png");
+        this.textfield_1.x = 150;
+        this.textfield_1.y = 450;
+        this.button_1.x = 330;
+        this.button_1.y = 460;
+        this.button_1.touchEnabled = true;
+        this.button_1.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
     }
     var d = __define,c=DialoguePanel,p=c.prototype;
     p.showDpanel = function () {
-        this.addChild(this.panel);
-        this.addChild(this.button);
-        this.addChild(this.textField);
+        this.addChild(this.panel_1);
+        this.addChild(this.button_1);
+        this.addChild(this.textfield_1);
     };
     p.disshowDpanel = function () {
-        this.removeChild(this.panel);
-        this.removeChild(this.button);
-        this.removeChild(this.textField);
+        this.removeChild(this.panel_1);
+        this.removeChild(this.button_1);
+        this.removeChild(this.textfield_1);
         //this.alpha=0;
     };
     p.onButtonClick = function () {
