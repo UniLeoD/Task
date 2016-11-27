@@ -7,7 +7,7 @@ class NPC extends egret.DisplayObjectContainer implements Observer {
     public _body: egret.Bitmap;
     private id: string;
     public dialoguePanel: DialoguePanel;
-    // public task:Task;
+
     constructor(id: string, ad: string, x: number, y: number, dp: DialoguePanel) {
         super();
         this._body = new egret.Bitmap();
@@ -22,7 +22,8 @@ class NPC extends egret.DisplayObjectContainer implements Observer {
         this._body.height = this._body.height;
         this._emoji.width = this._emoji.width;
         this._emoji.height = this._emoji.height;
-        this._emoji.y = -100;
+        this._emoji.x = 60;
+        this._emoji.y = 0;
         this._emoji.alpha = 0;
         this.addChild(this._body);
         this.addChild(this._emoji);
@@ -33,14 +34,10 @@ class NPC extends egret.DisplayObjectContainer implements Observer {
 
     onChange(task: Task) {
         if (task.status == TaskStatus.ACCEPTABLE && this.id == task.fromNpcId) {
-            //task.status = TaskStatus.DURING;
-            //this._emoji.texture = RES.getRes("question_png");
             this._emoji.alpha = 1;
         }
         if (task.status == TaskStatus.CAN_SUBMIT && this.id == task.fromNpcId) {
-            //task.status = TaskStatus.;
-            //this._emoji.texture = RES.getRes("question_png");
-            this._emoji.alpha = 0;
+          this._emoji.alpha = 0;
         }
         if (task.status == TaskStatus.CAN_SUBMIT && this.id == task.toNpcId) {
             this._emoji.texture = RES.getRes("Question_png");
@@ -61,27 +58,20 @@ class NPC extends egret.DisplayObjectContainer implements Observer {
 
 class TaskPanel extends egret.DisplayObjectContainer implements Observer {
 
-    body: egret.Shape;
     textField: egret.TextField;
     textField2: egret.TextField;
-    //task:Task;
+ 
     constructor(x: number, y: number) {
         super();
         this.x = x;
         this.y = y;
-        this.body = new egret.Shape();
         this.textField = new egret.TextField();
-        this.body.graphics.beginFill(0x000000, 0.4);
-        this.body.graphics.drawRect(0, 0, 600, 100);
-        this.body.graphics.endFill();
-
-
-        this.textField.x = x;
-        this.textField.x = y;
+        this.textField.x = 10;
+        this.textField.x = 1000;
         this.textField2 = new egret.TextField();
-        this.textField2.x = x + 20;
-        this.textField2.y = y + 30;
-        this.addChild(this.body);
+        this.textField2.x = 30;
+        this.textField2.y = 1030;
+   
         this.addChild(this.textField);
         this.addChild(this.textField2);
 
@@ -96,42 +86,43 @@ class TaskPanel extends egret.DisplayObjectContainer implements Observer {
 
 
 class DialoguePanel extends egret.DisplayObjectContainer {
+    panel_1: Panel;
+    button_1: Button;
+    textfield_1: egret.TextField;
 
-    button: Button;
-    textField: egret.TextField;
-    panel: Panel;
+
     constructor(talk: string) {
         super();
 
-    
+
         this.panel = new Panel("Panel_png");
-        this.panel.x = 75;
-        this.panel.y = 400;
-        this.textField = new egret.TextField();
-        this.textField.text = talk;
+        this.panel.x = 120;
+        this.panel.y = 420;
+        this.textfield = new egret.TextField();
+        this.textfield.text = talk;
         this.button = new Button("OK_png");
-        this.textField.x = 80;
-        this.textField.y = 500;
-        this.button.width = 40;
-        this.button.height = 40;
-        this.button.x = 500;
-        this.button.y = 550;
+        this.textfield.x = 150;
+        this.textfield.y = 450;
+        this.button.x = 330;
+        this.button.y = 460;
         this.button.touchEnabled = true;
         this.button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
+
 
     }
 
     showDpanel() {
         this.addChild(this.panel);
         this.addChild(this.button);
-        this.addChild(this.textField);
+        this.addChild(this.textfield);
+      
     }
 
     disshowDpanel() {
         this.removeChild(this.panel);
         this.removeChild(this.button);
-        this.removeChild(this.textField);
-        //this.alpha=0;
+        this.removeChild(this.textfield);
+
     }
 
 
@@ -144,7 +135,6 @@ class DialoguePanel extends egret.DisplayObjectContainer {
 
                 break;
             case TaskStatus.CAN_SUBMIT:
-                //console.log(TaskService.getInstance().finish("000"));
                 TaskService.getInstance().finish("000");
 
                 break;
@@ -157,16 +147,16 @@ class DialoguePanel extends egret.DisplayObjectContainer {
 }
 
 class Panel extends egret.DisplayObjectContainer {
-    
-     panel: egret.Bitmap;
+
+    panel: egret.Bitmap;
     constructor(ad: string) {
         super();
         this.panel = new egret.Bitmap();
         this.panel.texture = RES.getRes(ad);
         this.addChild(this.panel);
 
-  
-}
+
+    }
 }
 
 class Button extends egret.DisplayObjectContainer {
